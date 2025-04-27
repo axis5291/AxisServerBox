@@ -40,8 +40,9 @@ public class TestController {
 
     //객체와 3가지 파라미터를 받을 때
     @PostMapping(value = "/member")   //http://localhost:8080/api/server/member?name=준형&email=test@example.com&group=admin
-    public ResponseEntity<MemberDTO> getMember(
-             @RequestBody MemberDTO memberDTO,
+    public ResponseEntity<MemberDTO> getMember(   
+         //단순히 객체를 받을 때는 @RequestBody를 사용하고, 쿼리스트링으로 값을 받을 때는 @RequestParam을 사용합니다.
+             @RequestBody MemberDTO memberDTO,   //***@RequestBody의 역할: 뷰(또는 클라이언트) 가 JSON 형식으로 데이터를 보내면, 스프링이 그 JSON을 자바 객체로 변환해주는 역할
              @RequestParam String name,
              @RequestParam String email,
              @RequestParam String group){
@@ -58,3 +59,4 @@ public class TestController {
     }
 
 }//**ResponseEntity Spring Framework에서 제공하는 클래스로, HTTP 응답(status, headers, body)을 아주 세밀하게 조작하고 싶을 때 사용하는 객체
+// 단순히 MemberDTO로만 설정해도 됨(public MemverDTO getMember(){}로 해도 됨), 반환상태를 세부적으로 설정하고 싶을 때 ResponseEntity를 사용하고 단순객체반환만 해도 됨
