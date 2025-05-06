@@ -26,13 +26,13 @@ public class TestController {
         return "Hello Jong Ho from AxisServerBox";
     }
 
-    @GetMapping(value = "/name")   //http://localhost:8080/api/server/name?name=홍길동    @RequestParam은 쿼리스트링으로 값을 받을 때 (?name=홍길동)
+    @GetMapping(value = "/name1")   //http://localhost:8080/api/server/name1?name=홍길동    @RequestParam은 쿼리스트링으로 값을 받을 때 (?name=홍길동)
     public String getTest2(@RequestParam String name){
         LOGGER.info("getTest2 호출");
         return "Hello " +name+" from AxisServerBox";
     }
 
-    @GetMapping(value = "/PathVariable/{name}")   //http://localhost:8080/api/server/PathVariable/마준서            @PathVariable은 URL 경로 자체에 포함된 값을 받을 때 사용합니다 (/홍길동)
+    @GetMapping(value = "/path-variable/{name}")   //http://localhost:8080/api/server/PathVariable/마준서            @PathVariable은 URL 경로 자체에 포함된 값을 받을 때 사용합니다 (/홍길동)
     public String getTest3(@PathVariable String name){
         LOGGER.info("getTest3 호출");
         return "Hello " +name+" from AxisServerBox ";
