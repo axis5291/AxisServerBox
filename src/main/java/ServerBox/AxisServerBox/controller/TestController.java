@@ -55,6 +55,7 @@ public class TestController {
     public ResponseEntity<MemberDTO> addHeader(@RequestHeader("axis-header") String header, @RequestBody MemberDTO memberDTO ){
 
         LOGGER.info("add-header 호출");
+        LOGGER.info("header 값:{}", header);
         return ResponseEntity.status(HttpStatus.OK).body(memberDTO);
     }
 
